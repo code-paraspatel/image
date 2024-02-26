@@ -16,37 +16,6 @@ class _MyImagePickerScreenState extends State<MyImagePickerScreen> {
 
   ImagePicker picker=ImagePicker();
 
-  Future getImageFromCamara()async{
-    final pickedImage = await picker.pickImage(source: ImageSource.camera);
-    setState(() {
-      if(pickedImage != null){
-        _image = File(pickedImage.path);
-        if (kDebugMode) {
-          print('path :'+_image.toString());
-        }
-      }else{
-        if (kDebugMode) {
-          print('No Image Selected');
-        }
-      }
-    });
-  }
-  Future getImageFromGallery()async{
-    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
-    setState(() {
-      if(pickedImage != null){
-        _image = File(pickedImage.path);
-        if (kDebugMode) {
-          print('path :'+_image.toString());
-        }
-      }else{
-        if (kDebugMode) {
-          print('No Image Selected');
-        }
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,4 +57,34 @@ class _MyImagePickerScreenState extends State<MyImagePickerScreen> {
 
     );
   }
+   Future getImageFromCamara()async{
+     final pickedImage = await picker.pickImage(source: ImageSource.camera);
+     setState(() {
+       if(pickedImage != null){
+         _image = File(pickedImage.path);
+         if (kDebugMode) {
+           print('path :'+_image.toString());
+         }
+       }else{
+         if (kDebugMode) {
+           print('No Image Selected');
+         }
+       }
+     });
+   }
+   Future getImageFromGallery()async{
+     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+     setState(() {
+       if(pickedImage != null){
+         _image = File(pickedImage.path);
+         if (kDebugMode) {
+           print('path :'+_image.toString());
+         }
+       }else{
+         if (kDebugMode) {
+           print('No Image Selected');
+         }
+       }
+     });
+   }
 }
